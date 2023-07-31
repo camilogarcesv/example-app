@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styles from './CountriesTable.module.css';
+import Link from 'next/link';
 
 interface Country {
   name: {
@@ -9,6 +10,7 @@ interface Country {
   population: number;
   area?: number;
   region?: string;
+  cca3?: string;
 }
 
 interface CountriesTableProps {
@@ -41,17 +43,19 @@ const CountriesTable: FC<CountriesTableProps> = ({ countries }) => {
       </div>
 
       {countries.map((country) => (
-        <div className={styles.row} key={country.name.common}>
-          <div className={styles.flag}>{country.flag}</div>
+        <Link href={`/country/${country.cca3}`} key={country.name.common}>
+          <div className={styles.row}>
+            <div className={styles.flag}>{country.flag}</div>
 
-          <div className={styles.name}>{country.name.common}</div>
+            <div className={styles.name}>{country.name.common}</div>
 
-          <div className={styles.population}>{country.population}</div>
+            <div className={styles.population}>{country.population}</div>
 
-          <div className={styles.area}>{country.area || 0}</div>
+            <div className={styles.area}>{country.area || 0}</div>
 
-          <div className={styles.region}>{country.region || 'No Region'}</div>
-        </div>
+            <div className={styles.region}>{country.region || 'No Region'}</div>
+          </div>
+        </Link>
       ))}
     </div>
   );

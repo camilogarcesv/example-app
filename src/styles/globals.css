@@ -13,7 +13,6 @@
 
   --background-color: #f9f9f9;
   --background-color-dark: #eef3f6;
-  --background-color-light: #f0f9fc;
 }
 
 
@@ -35,4 +34,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }

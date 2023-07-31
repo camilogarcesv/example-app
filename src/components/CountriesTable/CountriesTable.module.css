@@ -10,10 +10,10 @@
   outline: none;
 }
 
-/* .heading_flag {
+.heading_flag {
   flex: 1; 
   margin-right: 16px;
-} */
+}
 
 .heading_name,
 .heading_population,

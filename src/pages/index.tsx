@@ -11,7 +11,10 @@ export default function Home({ countries }: { countries: [] }) {
 
 export const getStaticProps = async () => {
   try {
-    const res = await fetch('https://restcountries.com/v3.1/all');
+    const res = await fetch(
+      'https://restcountries.com/v3.1/all?fields=name,flag,population,area,region,cca3'
+      // 'https://restcountries.com/v3.1/all'
+    );
     const countries = await res.json();
     return {
       props: {
