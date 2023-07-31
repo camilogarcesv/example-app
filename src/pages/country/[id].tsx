@@ -2,6 +2,15 @@ import Layout from '@/components/Layout/Layout';
 import React from 'react';
 import styles from './Country.module.css';
 
+interface Currency {
+  name: string;
+  symbol: string;
+}
+
+interface Currencies {
+  [currencyCode: string]: Currency;
+}
+
 const getCountry = async (id: string) => {
   const res = await fetch(`https://restcountries.com/v3.1/alpha/${id}`);
 
@@ -47,16 +56,20 @@ const Country = ({ country }: { country: any }) => {
             <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Languages</div>
               <div className={styles.details_panel_value}>
-                {Object.values(country.languages).join(', ')}
+                {country.languages
+                  ? Object.values(country.languages).join(', ')
+                  : 'No languages info'}
               </div>
             </div>
 
             <div className={styles.details_panel_row}>
               <div className={styles.details_panel_label}>Currencies</div>
               <div className={styles.details_panel_value}>
-                {Object.values(country.currencies).map(
-                  (currency: any) => currency.name
-                )}
+                {country.currencies
+                  ? Object.values(country.currencies).map(
+                      (currency: any) => currency.name
+                    )
+                  : 'No currencies info'}
               </div>
             </div>
 
