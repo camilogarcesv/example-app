@@ -43,7 +43,11 @@ const CountriesTable: FC<CountriesTableProps> = ({ countries }) => {
       </div>
 
       {countries.map((country) => (
-        <Link href={`/country/${country.cca3}`} key={country.name.common}>
+        <Link
+          href={`/country/${country.cca3}`}
+          key={country.name.common}
+          data-testid="country-item"
+        >
           <div className={styles.row}>
             <div className={styles.flag}>{country.flag}</div>
 

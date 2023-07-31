@@ -1,7 +1,8 @@
 import Layout from '@/components/Layout/Layout';
 import CountriesTable from '@/components/CountriesTable/CountriesTable';
+import { Country } from '@/types/Country';
 
-export default function Home({ countries }: { countries: [] }) {
+export default function Home({ countries }: { countries: Country[] }) {
   return (
     <Layout>
       <CountriesTable countries={countries} />
@@ -13,7 +14,6 @@ export const getStaticProps = async () => {
   try {
     const res = await fetch(
       'https://restcountries.com/v3.1/all?fields=name,flag,population,area,region,cca3'
-      // 'https://restcountries.com/v3.1/all'
     );
     const countries = await res.json();
     return {
