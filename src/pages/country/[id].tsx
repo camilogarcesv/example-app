@@ -9,7 +9,7 @@ const getCountry = async (id: string) => {
   return country;
 };
 
-const Country = ({ country }) => {
+const Country = ({ country }: { country: any }) => {
   return (
     <Layout title={country.name.common}>
       <div className={styles.container}>
@@ -85,7 +85,7 @@ export default Country;
 export const getStaticPaths = async () => {
   const res = await fetch('https://restcountries.com/v3.1/all?fields=cca3');
   const countries = await res.json();
-  const paths = countries.map((country) => ({
+  const paths = countries.map((country: any) => ({
     params: { id: country.cca3 },
   }));
 
@@ -95,7 +95,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params }: { params: any }) => {
   const country = await getCountry(params.id);
   return {
     props: {

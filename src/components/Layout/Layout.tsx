@@ -3,7 +3,13 @@ import styles from './Layout.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const Layout = ({ children, title = 'All Countries' }) => {
+const Layout = ({
+  children,
+  title = 'All Countries',
+}: {
+  children: any;
+  title?: string;
+}) => {
   return (
     <div className={styles.container}>
       <Head>
