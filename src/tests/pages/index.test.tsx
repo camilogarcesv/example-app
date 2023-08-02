@@ -1,7 +1,8 @@
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Index from '../../pages/index';
 import { CountriesList } from '../fixtures/countriesList';
+import React from 'react';
 
 global.fetch = jest.fn().mockImplementation(() => {
   return Promise.resolve({
@@ -39,5 +40,13 @@ describe('Testing World List App', () => {
         CountriesList[i].name.common
       );
     }
+  });
+
+  it('should have its respective href before clicking link', async () => {
+    render(<Index countries={CountriesList} />);
+
+    const firstCountryLink = screen.getAllByTestId('country-item')[0];
+
+    expect(firstCountryLink.getAttribute('href')).toBe('/country/ASM');
   });
 });
