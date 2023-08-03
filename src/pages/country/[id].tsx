@@ -2,15 +2,6 @@ import Layout from '@/components/Layout/Layout';
 import React from 'react';
 import styles from './Country.module.css';
 
-interface Currency {
-  name: string;
-  symbol: string;
-}
-
-interface Currencies {
-  [currencyCode: string]: Currency;
-}
-
 const getCountry = async (id: string) => {
   const res = await fetch(`https://restcountries.com/v3.1/alpha/${id}`);
 
