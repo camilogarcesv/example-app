@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import styles from './Layout.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
 
-const Layout = ({
-  children,
-  title = 'All Countries',
-}: {
-  children: any;
+type LayoutProps = {
+  children: ReactNode;
   title?: string;
-}) => {
+};
+
+const Layout = ({ children, title = 'All Countries' }: LayoutProps) => {
   return (
     <div className={styles.container}>
       <Head>
