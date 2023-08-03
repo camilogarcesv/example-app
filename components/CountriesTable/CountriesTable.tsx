@@ -1,17 +1,18 @@
 import React from 'react';
 import styles from './CountriesTable.module.css';
 import Link from 'next/link';
+import { Country } from '../../types/Country';
 
-interface Country {
-  name: {
-    common: string;
-  };
-  flag: string;
-  population: number;
-  area?: number;
-  region?: string;
-  cca3?: string;
-}
+// interface Country {
+//   name: {
+//     common: string;
+//   };
+//   flag: string;
+//   population: number;
+//   area?: number;
+//   region?: string;
+//   cca3?: string;
+// }
 
 interface CountriesListProps {
   countries: Country[];

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Index from '../../app/page';
+import Home from '../../app/page';
 import { CountriesList } from '../fixtures/countriesList';
 import React from 'react';
 
@@ -24,13 +24,13 @@ describe('Testing World List App', () => {
   });
 
   it('Should render successfully', () => {
-    const { container } = render(<Index countries={CountriesList} />);
+    const { container } = render(<Home />);
 
     expect(container).toMatchSnapshot();
   });
 
   it('should render list of countries', () => {
-    render(<Index countries={CountriesList} />);
+    render(<Home />);
 
     const countryElements = screen.getAllByTestId('country-item');
     expect(countryElements).toHaveLength(CountriesList.length);
@@ -43,7 +43,7 @@ describe('Testing World List App', () => {
   });
 
   it('should have its respective href before clicking link', async () => {
-    render(<Index countries={CountriesList} />);
+    render(<Home />);
 
     const firstCountryLink = screen.getAllByTestId('country-item')[0];
 

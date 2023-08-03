@@ -1,4 +1,5 @@
 import CountriesTable from '../components/CountriesTable/CountriesTable';
+import { Country } from '../types/Country';
 
 const fetchCountries = async () => {
   return fetch(
@@ -8,7 +9,7 @@ const fetchCountries = async () => {
 };
 
 export default async function Home() {
-  const countries: [] = await fetchCountries();
+  const countries: Country[] = await fetchCountries();
 
   return (
     <section>
