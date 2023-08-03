@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import Index from '../../pages/index';
+import Index from '../../app/page';
 import { CountriesList } from '../fixtures/countriesList';
 import React from 'react';
 

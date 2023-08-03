@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from './CountriesTable.module.css';
 import Link from 'next/link';
 
@@ -13,11 +13,11 @@ interface Country {
   cca3?: string;
 }
 
-interface CountriesTableProps {
+interface CountriesListProps {
   countries: Country[];
 }
 
-const CountriesTable: FC<CountriesTableProps> = ({ countries }) => {
+const CountriesTable = async ({ countries }: CountriesListProps) => {
   return (
     <div>
       <div className={styles.heading}>
