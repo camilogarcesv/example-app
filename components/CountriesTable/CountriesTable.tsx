@@ -3,17 +3,6 @@ import styles from './CountriesTable.module.css';
 import Link from 'next/link';
 import { Country } from '../../types/Country';
 
-// interface Country {
-//   name: {
-//     common: string;
-//   };
-//   flag: string;
-//   population: number;
-//   area?: number;
-//   region?: string;
-//   cca3?: string;
-// }
-
 interface CountriesListProps {
   countries: Country[];
 }
@@ -22,8 +11,6 @@ const CountriesTable = async ({ countries }: CountriesListProps) => {
   return (
     <div>
       <div className={styles.heading}>
-        <div className={styles.heading_flag}></div>
-
         <button className={styles.heading_name}>
           <div>Name</div>
         </button>
